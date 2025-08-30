@@ -16,7 +16,26 @@ secretleri bota entegre et
 
 🟢bot: private ise🟢
 Environment Variablese: kullanıcıadı=bot_token_kodu    eklenmeli
+GitHub Container Registry için Personal Access Token Oluşturma
+GitHub > Sağ üst profil > Settings > Developer settings > Personal Access Tokens > Tokens (classic) Generate new token tıkla.
+	Name ver (örn. Railway GHCR Token)
+	Expiration seç (örn. 90 gün, veya ihtiyacına göre)
+Scopes kısmında:
+	write:packages → Paketleri push/pull için
+	read:packages → Paketleri pull için
+	repo → Eğer private repo’ndan GHCR kullanıyorsan
+Generate token tıkla → Oluşan token’ı kopyala (bir daha göremezsin)
 
+2️⃣ Kullanıcı Adı:	
+	DOCKER_USERNAME → GitHub kullanıcı adın (profile name)
+3️⃣ Token		:	
+	DOCKER_PASSWORD → Az önce oluşturduğun Personal Access Token (PAT)
+
+4️⃣ Railway’e Ekleme
+Railway > Project > Settings > Variables
+Yeni değişken ekle:
+Key: DOCKER_USERNAME → Value: GitHub kullanıcı adın
+Key: DOCKER_PASSWORD → Value: PAT token
 🟢🟢
 
 
@@ -24,7 +43,7 @@ Environment Variablese: kullanıcıadı=bot_token_kodu    eklenmeli
 #============================================
 docker yapı için 3 dosya ZORUNLU
 #============================================
-
+#🟢🟠========================================================
 .dockerignore
 __pycache__
 *.pyc
@@ -44,8 +63,10 @@ Dockerfile
 .dockerignore
 .idea
 .vscode
+#🟠========================================================
 
-#========================================================
+
+#🟢🟠========================================================
 Dockerfile
 
 FROM python:3.11-slim AS builder
@@ -84,10 +105,10 @@ USER appuser
 
 # Container başlatıldığında çalışacak komut
 CMD ["python", "bot.py"]
+#🟠========================================================
 
 
-
-#========================================================
+#🟢🟠========================================================
 .github/workflows/docker-deploy.yml
 
 # .github/workflows/docker-deploy.yml
@@ -168,3 +189,4 @@ jobs:
             --retry 3 \
             --retry-delay 5 \
             ${{ secrets.RAILWAY_DEPLOY_HOOK }}
+#🟠========================================================
