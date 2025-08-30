@@ -1,8 +1,16 @@
 Railway Deployment için:
-Railway projesinde Deploy from GitHub seçeneğini kullanın
-Container registry'i GHCR olarak ayarlayın
-Environment variables'ları Railway dashboard'dan ekleyin
-Bu düzenlemelerden sonra Python tabanlı Telegram botunuz GHCR üzerinden Railway'a deploy edilebilir.
+Railway'de Yeni Proje Oluştur
+*1 New Project → Deploy from GitHub repo
+*2 Railway otomatik olarak Dockerfile'ı tanıyacak
+3* Environment Variables Ekle> Telegram bot tokenınızı ve gerekli değişkenleri ekle
+4* Deployment Trigger> GitHub'a push yaptığınızda otomatik deploy başlayacak/ manual
+
+önerilmez>> 
+GitHub Repo (Direct)
+❌ Python bağımlılıklarını otomatik çözemeyebilir
+❌ Python version kontrolü zor
+❌ Özel sistem bağımlılıkları gerektirebilir
+
 
 
 #============================================
