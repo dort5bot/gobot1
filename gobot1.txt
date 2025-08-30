@@ -11,6 +11,14 @@ GitHub Repo (Direct)
 ❌ Python version kontrolü zor
 ❌ Özel sistem bağımlılıkları gerektirebilir
 
+🟢 NOT 🟢
+secretleri bota entegre et
+
+🟢bot: private ise🟢
+Environment Variablese: kullanıcıadı=bot_token_kodu    eklenmeli
+
+🟢🟢
+
 
 
 #============================================
