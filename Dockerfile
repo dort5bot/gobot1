@@ -33,4 +33,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 USER appuser
 
 # Container başlatıldığında çalışacak komut
-CMD ["python", "bot.py"]
+CMD ["python", "main.py"]
